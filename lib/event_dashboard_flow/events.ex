@@ -50,23 +50,23 @@ defmodule EventDashboardFlow.Events do
 
   """
   def create_door_events(attrs \\ %{}) do
-    inserted = %DoorEvents{}
-              |> DoorEvents.changeset(attrs)
-              |> Repo.insert()
+    inserted =
+      %DoorEvents{}
+      |> DoorEvents.changeset(attrs)
+      |> Repo.insert()
 
-    case inserted do 
+    case inserted do
       {:ok, event} ->
         case event.event_type do
           "ENTRY_DOOR_IS_OPENED" -> EventDashboardFlow.DashboardState.put(:door_open, true)
-
           "ENTRY_DOOR_IS_SHUT" -> EventDashboardFlow.DashboardState.put(:door_open, false)
-
           _ -> :ok
         end
+
         inserted
 
-        _ ->
-          inserted
+      _ ->
+        inserted
     end
   end
 

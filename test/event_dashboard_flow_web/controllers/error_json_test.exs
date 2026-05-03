@@ -2,7 +2,9 @@ defmodule EventDashboardFlowWeb.ErrorJSONTest do
   use EventDashboardFlowWeb.ConnCase, async: true
 
   test "renders 404" do
-    assert EventDashboardFlowWeb.ErrorJSON.render("404.json", %{}) == %{errors: %{detail: "Not Found"}}
+    assert EventDashboardFlowWeb.ErrorJSON.render("404.json", %{}) == %{
+             errors: %{detail: "Not Found"}
+           }
   end
 
   test "renders 500" do

@@ -10,7 +10,8 @@ defmodule EventDashboardFlow.Application do
     children = [
       EventDashboardFlowWeb.Telemetry,
       EventDashboardFlow.Repo,
-      {DNSCluster, query: Application.get_env(:event_dashboard_flow, :dns_cluster_query) || :ignore},
+      {DNSCluster,
+       query: Application.get_env(:event_dashboard_flow, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: EventDashboardFlow.PubSub},
       EventDashboardFlow.DashboardState,
 

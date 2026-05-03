@@ -34,9 +34,15 @@ defmodule EventDashboardFlow.EventsTest do
 
     test "update_door_events/2 with valid data updates the door_events" do
       door_events = door_events_fixture()
-      update_attrs = %{event_type: "some updated event_type", event_data: "some updated event_data"}
 
-      assert {:ok, %DoorEvents{} = door_events} = Events.update_door_events(door_events, update_attrs)
+      update_attrs = %{
+        event_type: "some updated event_type",
+        event_data: "some updated event_data"
+      }
+
+      assert {:ok, %DoorEvents{} = door_events} =
+               Events.update_door_events(door_events, update_attrs)
+
       assert door_events.event_type == "some updated event_type"
       assert door_events.event_data == "some updated event_data"
     end

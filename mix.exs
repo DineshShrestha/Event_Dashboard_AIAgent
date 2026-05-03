@@ -48,7 +48,8 @@ defmodule EventDashboardFlow.MixProject do
       {:absinthe, "~> 1.7"},
       {:absinthe_plug, "~> 1.5"},
       {:req, "~> 0.5"},
-      {:json, "~> 1.4"}
+      {:json, "~> 1.4"},
+      {:dotenvy, "~> 0.8"}
     ]
   end
 
